@@ -28,6 +28,8 @@
 
     // allows <Component {...pageProps} />;
     "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
+
+    // https://stackoverflow.com/a/69931909/6117435
     "react/function-component-definition": [
       2,
       {
