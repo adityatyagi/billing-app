@@ -1,9 +1,13 @@
 {
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "eslint-comments", "promise"],
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended-requiring-type-checking.ts
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:eslint-comments/recommended",
+    "plugin:promise/recommended",
     "plugin:@next/next/recommended",
     "prettier"
   ],
@@ -19,5 +23,9 @@
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/no-explicit-any": "error"
+  },
+  "parserOptions": {
+    "tsconfigRootDir": ".",
+    "project": ["./tsconfig.json"]
   }
 }
