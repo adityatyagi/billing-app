@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "pre-commit": "pnpm tsc --noEmit && pnpm lint && pnpm format"
+    "format:fix": "prettier --write ."
   },
   "dependencies": {
     "next": "12.1.6",
