@@ -10,6 +10,9 @@
     "plugin:promise/recommended",
     "airbnb",
     "airbnb-typescript",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
     "plugin:@next/next/recommended",
     "prettier"
   ],
