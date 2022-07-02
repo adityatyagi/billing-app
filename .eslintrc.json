@@ -80,6 +80,12 @@
           {
             "assert": "either" // either check for `htmlFor` or `nesting`
           }
+        ],
+        "@typescript-eslint/no-misused-promises": [
+          "error",
+          {
+            "checksVoidReturn": false
+          }
         ]
       }
     }
