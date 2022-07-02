@@ -2,3 +2,7 @@
 .next
 dist
 node_modules/
+
+# ignoring the linting on material UI file
+# @see https://github.com/mui/material-ui/tree/master/examples/nextjs-with-typescript
+pages/_document.tsx
