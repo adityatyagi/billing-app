@@ -7,6 +7,7 @@ const handler = async (
 ) => {
   if (req.method === 'POST') {
     try {
+      console.log(process.env.DB_HOST);
       const client = await MongoClient.connect(process.env.DB_HOST as string);
       const db = client.db();
 
