@@ -7,18 +7,14 @@ const handler = async (
 ) => {
   if (req.method === 'POST') {
     try {
-      const client = await MongoClient.connect(
-        'mongodb+srv://admin:admin@cluster0.ojvah.mongodb.net/billing-app?retryWrites=true&w=majority'
-      );
+      const client = await MongoClient.connect(process.env.DB_HOST as string);
       const db = client.db();
 
       const billingCollection = db.collection('billing-app');
 
-      const result = await billingCollection.insertOne({
+      await billingCollection.insertOne({
         location: 'aditya'
       });
-
-      console.log('billingCollection', result.acknowledged);
 
       await client.close();
 
