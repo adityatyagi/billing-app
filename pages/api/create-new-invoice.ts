@@ -1,5 +1,5 @@
-import { MongoClient } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from 'next';
+import getMongoDb from 'src/api-lib/mongodb';
 
 const handler = async (
   req: NextApiRequest,
@@ -7,17 +7,13 @@ const handler = async (
 ) => {
   if (req.method === 'POST') {
     try {
-      console.log(process.env.DB_HOST);
-      const client = await MongoClient.connect(process.env.DB_HOST as string);
-      const db = client.db();
+      const db = await getMongoDb();
 
       const billingCollection = db.collection('billing-app');
 
       await billingCollection.insertOne({
-        location: 'aditya'
+        location: 'tyagi'
       });
-
-      await client.close();
 
       res.status(201).json({ message: 'Bill Inserteed' });
     } catch (error) {
