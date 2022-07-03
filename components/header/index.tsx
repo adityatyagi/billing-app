@@ -1,9 +1,14 @@
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 
 const Header = () => (
-  <header className="sticky top-0 z-50 flex justify-center bg-white shadow-sm">
-    <h1 className="my-2 text-2xl">Gulab Industries</h1>
-  </header>
+  <Box>
+    <AppBar component="nav">
+      <Toolbar>
+        <Typography>Gulab Industries</Typography>
+      </Toolbar>
+    </AppBar>
+  </Box>
 );
 
 export default Header;

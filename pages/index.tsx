@@ -1,33 +1,31 @@
 import type { NextPage } from 'next';
+import Stack from '@mui/material/Stack';
 import Link from 'next/link';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
 
 const Home: NextPage = () => (
-  <section className="flex flex-col items-center w-100">
-    <Link href="create-new-invoice">
-      <button
-        type="button"
-        className="px-4 py-2 my-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-      >
-        Create New Bill
-      </button>
-    </Link>
-    <Link href="invoices">
-      <button
-        type="button"
-        className="px-4 py-2 my-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-      >
-        Invoices
-      </button>
-    </Link>
-    <Link href="companies">
-      <button
-        type="button"
-        className="px-4 py-2 my-4 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
-      >
-        Party Details
-      </button>
-    </Link>
-  </section>
+  <Container>
+    <Stack spacing={4}>
+      <Link href="create-new-invoice">
+        <Button variant="outlined" type="button">
+          Create New Bill
+        </Button>
+      </Link>
+
+      <Link href="invoices">
+        <Button variant="outlined" type="button">
+          Invoices
+        </Button>
+      </Link>
+
+      <Link href="companies">
+        <Button variant="outlined" type="button">
+          Party Details
+        </Button>
+      </Link>
+    </Stack>
+  </Container>
 );
 
 export default Home;

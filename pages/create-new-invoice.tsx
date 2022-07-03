@@ -1,58 +1,62 @@
-import {
-  Box,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  SelectChangeEvent,
-  Button
-} from '@mui/material';
+import { Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import FormControl from '@mui/material/FormControl';
+import Grid from '@mui/material/Grid';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import React from 'react';
 
-const CreateNewBill = () => {
-  const age = 10;
-  const createNewInvoiceHandler = async () => {
-    try {
-      const response = await fetch('/api/create-new-invoice', {
-        method: 'POST',
-        body: JSON.stringify({
-          location: 'Bawana'
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-
-      const data = (await response.json()) as { message: string };
-      console.log(data);
-    } catch (error) {
-      console.error('error', error);
-    }
-  };
-  const locationChangeHandler = (event: SelectChangeEvent<number>) => {
-    event.preventDefault();
-  };
-  return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={locationChangeHandler}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-      <Button type="button" onClick={createNewInvoiceHandler}>
-        Create new invoice
-      </Button>
+const CreateNewBill = () => (
+  <Container>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        mb: 2
+      }}
+    >
+      <h2>Create New Bill</h2>
     </Box>
-  );
-};
+    <form>
+      <Grid container rowSpacing={2}>
+        <Grid item xs={12}>
+          <FormControl fullWidth>
+            <InputLabel id="location-label">Location</InputLabel>
+            <Select labelId="location-label" id="location" label="Age">
+              <MenuItem value={10}>Rai</MenuItem>
+              <MenuItem value={20}>Bawana</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl fullWidth>
+            <InputLabel id="type-label">Type</InputLabel>
+            <Select labelId="type-label" id="type" label="Age">
+              <MenuItem value={10}>Original</MenuItem>
+              <MenuItem value={20}>Consignee</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <label htmlFor="date">
+            <Typography>Date</Typography>
+          </label>
+          <input id="date" type="date" />
+        </Grid>
+        <Grid item xs={12}>
+          <FormControl fullWidth>
+            <InputLabel id="type-label">Type</InputLabel>
+            <Select labelId="type-label" id="type" label="Age">
+              <MenuItem value={10}>Original</MenuItem>
+              <MenuItem value={20}>Consignee</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
+    </form>
+  </Container>
+);
 
 export default CreateNewBill;
